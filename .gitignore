@@ -121,8 +121,11 @@ venv.bak/
 *.pkl.json
 *.log.json
 /work_dirs
+/work_dir
 /mmcls/.mim
 .DS_Store
+/resnet50_8xb32_in1k.py
+.gitignore
 
 # Pytorch
 *.pth
@@ -132,3 +135,4 @@ venv.bak/
 *.pvti-journal
 /cache_engine
 /report
+
