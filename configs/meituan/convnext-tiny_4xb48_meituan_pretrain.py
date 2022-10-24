@@ -8,14 +8,16 @@ _base_ = [
 model = dict(
     backbone=dict(
         init_cfg=dict(
+            _delete_=True,
             type='Pretrained',
             checkpoint='https://download.openmmlab.com/mmclassification/v0/convnext/convnext-tiny_3rdparty_32xb128-noema_in1k_20220222-2908964a.pth',
             prefix='backbone',
-        )),
+        ))
+)
 
 data = dict(samples_per_gpu=128)
 
-optimizer = dict(lr=4e-3)
+optimizer = dict(lr=4e-4)
 
 runner = dict(type='EpochBasedRunner', max_epochs=100)
 
