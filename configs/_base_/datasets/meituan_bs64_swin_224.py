@@ -57,8 +57,8 @@ data = dict(
         oversample_thr=1e-3,                # 对小于千分之一的类别进行重采样
         dataset=dict(
             type=dataset_type,
-            data_prefix='/ssd/data/meituan/val',
-            ann_file=None,
+            data_prefix='/ssd/data/meituan/Train_qtc',
+            ann_file='/ssd/data/meituan/meta/train_qtcom.txt',
             pipeline=train_pipeline),
     ),
     val=dict(
