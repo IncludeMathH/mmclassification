@@ -16,23 +16,40 @@ model = dict(
 )
 
 # datasets config
-data = dict(samples_per_gpu=128)         # batch_size
-evaluation = dict(interval=1, metric='accuracy')
+train_dataloader = dict(
+    batch_size=64,
+    num_workers=4,
+)
+val_dataloader = dict(
+    batch_size=64,
+    num_workers=4,
+)
 
 # schedules config
 # for batch in each gpu is 128, 8 gpu
 # lr = 5e-4 * 128 * 8 / 512 = 0.001
 optimizer = dict(
-    lr=5e-5 * 128*4 / 512)
-runner = dict(type='EpochBasedRunner', max_epochs=100)
+    lr=5e-5 * 64*4 / 512)
+train_cfg = dict(by_epoch=True, max_epochs=100, val_interval=1)
 
 # run_time config
-# checkpoint saving
-checkpoint_config = dict(interval=5)
-# yapf:disable
-log_config = dict(
-    interval=20,
-    hooks=[
-        dict(type='TextLoggerHook'),
-        # dict(type='TensorboardLoggerHook')
-    ])
+# configure default hooks
+default_hooks = dict(
+    # record the time of every iteration.
+    timer=dict(type='IterTimerHook'),
+
+    # print log every 100 iterations.
+    logger=dict(type='LoggerHook', interval=20),
+
+    # enable the parameter scheduler.
+    param_scheduler=dict(type='ParamSchedulerHook'),
+
+    # save checkpoint per epoch.
+    checkpoint=dict(type='CheckpointHook', interval=5),
+
+    # set sampler seed in distributed evrionment.
+    sampler_seed=dict(type='DistSamplerSeedHook'),
+
+    # validation results visualization, set True to enable it.
+    visualization=dict(type='VisualizationHook', enable=False),
+)
