@@ -17,6 +17,7 @@ model = dict(
 
 # datasets config
 data = dict(samples_per_gpu=48)         # batch_size
+evaluation = dict(interval=1, metric='accuracy')
 
 # schedules config
 # for batch in each gpu is 128, 8 gpu
