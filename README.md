@@ -1,20 +1,36 @@
 # 目前的实验结果
 
-|  Backbone  | Params(M) | Epoch | Top1-acc | Top5-acc |
-|:----------:|:---------:|:-----:|:--------:|:--------:|
-| ConvNext-T |   28.59   |  100  |  73.04   |  93.33   |
-|   Swin-T   |   28.29   |  100  |  80.16   |  96.53   |
-|   Swin-S   |   49.61   |  100  |  80.13   |  96.47   |
-|   Swin-B   |   87.77   |  100  |  79.98   |  96.54   |
-|   Swin-L   |  196.53   |  100  |          |          |
-| ResNet-50  |   25.56   |  100  |  78.89   |  95.51   |
-| ResNet-101 |   44.55   |  100  |  79.48   |  95.53   |
-| ResNet-152 |   60.19   |  100  |  79.69   |  95.74   |
-|   ViT-B    |   86.86   |  100  |  79.73   |  95.91   | 
+|  Backbone  | Params(M) | Epoch | Top1-acc  | Top5-acc  |
+|:----------:|:---------:|:-----:|:---------:|:---------:|
+| ConvNext-T |   28.59   |  100  |   73.04   |   93.33   |
+|   Swin-T   |   28.29   |  100  |   80.16   |   96.53   |
+|   Swin-S   |   49.61   |  100  |   80.13   |   96.47   |
+|   Swin-B   |   87.77   |  100  |   79.98   |   96.54   |
+|   Swin-L   |  196.53   |  100  | **85.12** | **97.98** |
+| ResNet-50  |   25.56   |  100  |   78.89   |   95.51   |
+| ResNet-101 |   44.55   |  100  |   79.48   |   95.53   |
+| ResNet-152 |   60.19   |  100  |   79.69   |   95.74   |
+|   ViT-B    |   86.86   |  100  |   79.73   |   95.91   | 
+
+# 数据集结构
+需要将测试集图片放到一个名字为'0'的文件夹中，然后把’0‘文件夹放到’test‘文件夹中。
+
+例如：
+- data
+  - meituan
+    - meta
+    - test
+      - 0
+        - xxx.jpg
+    - train
+    - val
+
+可以参见CustomDataset的代码说明。
+
+
 
 ## 在使用代码的同时一起开发：
-
-请参考 [协作开发指南](https://mmclassification.readthedocs.io/zh_CN/latest/community/CONTRIBUTING.html) 来了解如何参与贡献。
+先fork到自己的github中，clone之后进行Pull request即可。
 
 <<<<<<< HEAD
 :point_right: **MMClassification 1.0 branch is in trial, welcome every to [try it](https://github.com/open-mmlab/mmclassification/tree/1.x) and [discuss with us](https://github.com/open-mmlab/mmclassification/discussions)!** :point_left:
