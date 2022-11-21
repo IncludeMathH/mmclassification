@@ -1,4 +1,5 @@
 # 目前的实验结果
+<<<<<<< HEAD
 
 |  Backbone  | Params(M) | Epoch | Top1-acc  | Top5-acc  |
 |:----------:|:---------:|:-----:|:---------:|:---------:|
@@ -34,18 +35,44 @@
 
 <<<<<<< HEAD
 :point_right: **MMClassification 1.0 branch is in trial, welcome every to [try it](https://github.com/open-mmlab/mmclassification/tree/1.x) and [discuss with us](https://github.com/open-mmlab/mmclassification/discussions)!** :point_left:
+=======
 
-</div>
+|  Backbone  | Params(M) | Epoch | Top1-acc  | Top5-acc  |
+|:----------:|:---------:|:-----:|:---------:|:---------:|
+| ConvNext-T |   28.59   |  100  |   73.04   |   93.33   |
+|   Swin-T   |   28.29   |  100  |   80.16   |   96.53   |
+|   Swin-S   |   49.61   |  100  |   80.13   |   96.47   |
+|   Swin-B   |   87.77   |  100  |   79.98   |   96.54   |
+|   Swin-L   |  196.53   |  100  | **85.12** | **97.98** |
+| ResNet-50  |   25.56   |  100  |   78.89   |   95.51   |
+| ResNet-101 |   44.55   |  100  |   79.48   |   95.53   |
+| ResNet-152 |   60.19   |  100  |   79.69   |   95.74   |
+|   ViT-B    |   86.86   |  100  |   79.73   |   95.91   | 
 
-## Introduction
+# 数据集结构
+需要将测试集图片放到一个名字为'0'的文件夹中，然后把’0‘文件夹放到’test‘文件夹中。
 
-English | [简体中文](/README_zh-CN.md)
+例如：
+- data
+  - meituan
+    - meta
+    - test
+      - 0
+        - xxx.jpg
+    - train
+    - val
+>>>>>>> 2e8a49b0011f42b0efd253fc073f8eeb2408adc4
 
-MMClassification is an open source image classification toolbox based on PyTorch. It is
-a part of the [OpenMMLab](https://openmmlab.com/) project.
+可以参见CustomDataset的代码说明。
 
-The master branch works with **PyTorch 1.5+**.
 
+
+## 在使用代码的同时一起开发：
+先fork到自己的github中，clone之后进行Pull request即可。
+
+## 只使用代码而不一起开发：
+
+<<<<<<< HEAD
 <div align="center">
   <img src="https://user-images.githubusercontent.com/9102141/87268895-3e0d0780-c4fe-11ea-849e-6140b7e0d4de.gif" width="70%"/>
 </div>
@@ -92,6 +119,9 @@ Below are quick steps for installation:
 
 以下是安装的简要步骤：
 >>>>>>> 更新了ReadMe文件。在Swin-L模型上微调
+=======
+以下是安装的简要步骤：
+>>>>>>> 2e8a49b0011f42b0efd253fc073f8eeb2408adc4
 
 ```shell
 conda create -n open-mmlab python=3.8 pytorch=1.10 cudatoolkit=11.3 torchvision==0.11.0 -c pytorch -y
