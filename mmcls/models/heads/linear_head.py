@@ -74,8 +74,11 @@ class LinearClsHead(ClsHead):
         else:
             return pred
 
-    def forward_train(self, x, gt_label, **kwargs):
+    def forward_train(self, x, gt_label, stage='loss', **kwargs):
         x = self.pre_logits(x)
         cls_score = self.fc(x)
-        losses = self.loss(cls_score, gt_label, **kwargs)
-        return losses
+        if stage == 'tensor':
+            return cls_score
+        elif stage == 'loss':
+            losses = self.loss(cls_score, gt_label, **kwargs)
+            return losses
